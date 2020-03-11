@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(20),
     borderTopLeftRadius: moderateScale(20),
     borderBottomLeftRadius: moderateScale(20),
+    borderTopRightRadius: moderateScale(20),
   },
   text: {
     fontFamily: 'Roboto-Regular',

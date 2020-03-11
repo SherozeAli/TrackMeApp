@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import {Text, ScrollView, StatusBar, View} from 'react-native';
+import {Text, ScrollView, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import Input from '../../components/input/Input';
@@ -11,20 +11,18 @@ import {
   pink,
   lightBlue,
 } from '../../config/typography/colors';
-
-const SigninScreen = ({navigation}) => {
+const SignupScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor={primaryColor} barStyle="light-content" />
       <ScrollView
         contentContainerStyle={{
           flex: 1,
           justifyContent: 'center',
         }}>
         <View style={styles.innerContainer}>
-          <Text style={styles.text}>Login</Text>
+          <Text style={styles.text}>Signup</Text>
           <Input
             iconName="envelope"
             placeholder="E-mail address"
@@ -40,14 +38,14 @@ const SigninScreen = ({navigation}) => {
             onChangeText={password => setPassword(password)}
           />
           <MyButton
-            buttonText="Login"
+            buttonText="Signup"
             buttonColor={lightBlue}
             onPress={() => navigation.navigate('')}
           />
           <MyButton
-            buttonText="Register new account"
+            buttonText="Already have an account"
             buttonColor={pink}
-            onPress={() => navigation.navigate('Signup')}
+            onPress={() => navigation.navigate('Signin')}
           />
         </View>
       </ScrollView>
@@ -55,7 +53,8 @@ const SigninScreen = ({navigation}) => {
   );
 };
 
-SigninScreen.navigationOptions = {
+SignupScreen.navigationOptions = {
   headerShown: false,
 };
-export default SigninScreen;
+
+export default SignupScreen;

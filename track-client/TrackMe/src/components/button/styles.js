@@ -8,12 +8,12 @@ import {
 import {verticalScale, scale, moderateScale} from 'react-native-size-matters';
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: moderateScale(10),
+    marginHorizontal: moderateScale(20),
   },
 
   buttonContainer: {
     marginTop: moderateScale(10),
-    padding: moderateScale(13),
+    padding: moderateScale(10),
     backgroundColor: lightBlue,
     borderRadius: moderateScale(25),
     shadowColor: white,

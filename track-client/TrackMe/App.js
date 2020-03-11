@@ -1,5 +1,5 @@
 import SigninScreen from './src/screens/signin/SigninScreen';
-import SignupScreen from './src/screens/SignupScreen';
+import SignupScreen from './src/screens/signup/SignupScreen';
 import AccountScreen from './src/screens/AccountScreen';
 import TrackCreateScreen from './src/screens/TrackCreateScreen';
 import TrackDetailScreen from './src/screens/TrackDetailScreen';
