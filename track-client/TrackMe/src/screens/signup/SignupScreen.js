@@ -1,17 +1,13 @@
-import React, {Component, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {Text, ScrollView, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
 import Input from '../../components/input/Input';
 import MyButton from '../../components/button/MyButton';
-import {
-  primaryColor,
-  white,
-  black,
-  pink,
-  lightBlue,
-} from '../../config/typography/colors';
+import {pink, lightBlue} from '../../config/typography/colors';
+import {Context as AuthContext} from '../../context/AuthContext';
 const SignupScreen = ({navigation}) => {
+  const {state, signup} = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -37,10 +33,13 @@ const SignupScreen = ({navigation}) => {
             value={password}
             onChangeText={password => setPassword(password)}
           />
+          {state.errorMessage ? (
+            <Text style={styles.errorText}>{state.errorMessage}</Text>
+          ) : null}
           <MyButton
             buttonText="Signup"
             buttonColor={lightBlue}
-            onPress={() => navigation.navigate('')}
+            onPress={() => signup({email, password})}
           />
           <MyButton
             buttonText="Already have an account"

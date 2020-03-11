@@ -27,6 +27,12 @@ const styles = StyleSheet.create({
     color: white,
     textAlign: 'center',
   },
+  errorText: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: verticalScale(18),
+    color: 'red',
+    textAlign: 'center',
+  },
 });
 
 export default styles;
