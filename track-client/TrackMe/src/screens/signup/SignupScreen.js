@@ -6,12 +6,16 @@ import Input from '../../components/input/Input';
 import MyButton from '../../components/button/MyButton';
 import {pink, lightBlue} from '../../config/typography/colors';
 import {Context as AuthContext} from '../../context/AuthContext';
+import {NavigationEvents} from 'react-navigation';
+
 const SignupScreen = ({navigation}) => {
-  const {state, signup} = useContext(AuthContext);
+  const {state, signup, clearErrorMessage} = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   return (
     <View style={styles.container}>
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <ScrollView
         contentContainerStyle={{
           flex: 1,

@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useState, useContext} from 'react';
 import {Text, ScrollView, StatusBar, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './styles';
@@ -11,13 +11,17 @@ import {
   pink,
   lightBlue,
 } from '../../config/typography/colors';
+import {NavigationEvents} from 'react-navigation';
+import {Context as AuthContext} from '../../context/AuthContext';
 
 const SigninScreen = ({navigation}) => {
+  const {state, signin, clearErrorMessage} = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={primaryColor} barStyle="light-content" />
+      <NavigationEvents onWillBlur={clearErrorMessage} />
       <ScrollView
         contentContainerStyle={{
           flex: 1,
@@ -39,10 +43,13 @@ const SigninScreen = ({navigation}) => {
             value={password}
             onChangeText={password => setPassword(password)}
           />
+          {state.errorMessage ? (
+            <Text style={styles.errorText}>{state.errorMessage}</Text>
+          ) : null}
           <MyButton
             buttonText="Login"
             buttonColor={lightBlue}
-            onPress={() => navigation.navigate('')}
+            onPress={() => signin({email, password})}
           />
           <MyButton
             buttonText="Register new account"
