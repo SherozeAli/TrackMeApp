@@ -1,9 +1,9 @@
 import SigninScreen from './src/screens/signin/SigninScreen';
 import SignupScreen from './src/screens/signup/SignupScreen';
 import AccountScreen from './src/screens/signout/AccountScreen';
-import TrackCreateScreen from './src/screens/TrackCreateScreen';
-import TrackDetailScreen from './src/screens/TrackDetailScreen';
-import TrackListScreen from './src/screens/TrackListScreen';
+import TrackCreateScreen from './src/screens/tracks/create-track/TrackCreateScreen';
+import TrackDetailScreen from './src/screens/tracks/track-details/TrackDetailScreen';
+import TrackListScreen from './src/screens/tracks/track-list/TrackListScreen';
 import Splash from './src/screens/splash';
 import {Provider as AuthProvider} from './src/context/AuthContext';
 import React, {Component} from 'react';
